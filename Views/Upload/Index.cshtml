@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CsvUpload.Models.BidModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+
+@using (Html.BeginForm("Index", "Upload", FormMethod.Post,
+                new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="UploadedFile" value="" />
+
+    <input type="submit" name="UploadedFile" value="Import/" />
+}
+
+@if (Model.Count() > 0)
+{
+    <hr/>
+    <table>
+        <tr>
+            <th>Zone</th>
+            <th>Branch</th>
+            <th>Lc Number</th>
+            <th>Acct_no</th>
+            <th>Customers Name</th>
+            <th>Acmount Won</th>
+
+
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Zone</td>
+                <td>@item.Branch</td>
+                <td>@item.Lc_number</td>
+                <td>@item.Acct_no</td>
+                <td>@item.Customers_name</td>
+               
+
+
+
+
+            </tr>
+        } 
+
+    </table>
+}
+
